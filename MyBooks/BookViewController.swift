@@ -13,13 +13,23 @@ class BookViewController: UIViewController {
     
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbPlatform: UILabel!
-    
+    var book: Book!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        lbTitle.text = book.title
+        lbPlatform.text = book.platform?.name
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! AddEditViewController
+        vc.book = book
     }
     
 

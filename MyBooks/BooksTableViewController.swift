@@ -22,6 +22,11 @@ class BooksTableViewController: UITableViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func loadBooks(){
         let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
@@ -36,6 +41,17 @@ class BooksTableViewController: UITableViewController {
             print(error.localizedDescription)
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "bookSegue" {
+            let vc = segue.destination as! BookViewController
+            if let books = FetchedResultsController.fetchedObjects {
+                vc.book = books[tableView.indexPathForSelectedRow!.row]
+            }
+            
+            
+        }
     }
     // MARK: - Table view data source
 
@@ -66,17 +82,14 @@ class BooksTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            guard let book = FetchedResultsController.fetchedObjects?[indexPath.row] else {return}
+            context.delete(book)
     }
-    */
+    }
 
     /*
     // Override to support rearranging the table view.
