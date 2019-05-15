@@ -9,39 +9,36 @@
 import UIKit
 
 class AddEditViewController: UIViewController {
-
+    
     @IBOutlet weak var tfTitle: UITextField!
     @IBOutlet weak var tfPlatform: UITextField!
     @IBOutlet weak var btAddEdit: UIButton!
-    
     var book: Book!
+    
     lazy var pickerView:UIPickerView = {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.backgroundColor = .white
         return pickerView
-        
     }()
+    
     var platformsManager = PlatformsManager.shared
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         preparePlatformTextField()
+        self.navigationController?.navigationBar.barStyle = .black
+        
         if book != nil{
             title = "Editar jogo"
             btAddEdit.setTitle("ALTERAR", for: .normal)
             tfTitle.text = book.title
             if let platform = book.platform, let index = platformsManager.platforms.firstIndex(of:platform){
                 tfPlatform.text = platform.name
-                pickerView.selectRow(index, inComponent: 0, animated: true)
+                pickerView.selectRow(index, inComponent: 0, animated: false)
             }
-            
         }
-        
-        
-        
+        preparePlatformTextField()
     }
     
     func preparePlatformTextField(){
@@ -52,13 +49,12 @@ class AddEditViewController: UIViewController {
         toolbar.items = [btCancel,btFlexibleSpace,btDone]
         tfPlatform.inputView = pickerView
         tfPlatform.inputAccessoryView = toolbar
-        
     }
     
     @objc func cancel(){
         tfPlatform.resignFirstResponder()
-        
     }
+    
     @objc func done(){
         tfPlatform.text = platformsManager.platforms[pickerView.selectedRow(inComponent: 0)].name
         cancel()
@@ -69,17 +65,16 @@ class AddEditViewController: UIViewController {
         platformsManager.loadPlatforms(with: context)
     }
     
-    // MARK: - save button
+    // MARK: - add+edit button
     @IBAction func btAddEdit(_ sender: UIButton) {
         if book == nil {
             book = Book(context: context)
         }
         book.title = tfTitle.text
-        if tfPlatform.text!.isEmpty {
+        if !tfPlatform.text!.isEmpty {
             let platform = platformsManager.platforms[pickerView.selectedRow(inComponent: 0)]
             book.platform = platform
         }
-        
         do {
             try context.save()
         } catch  {
@@ -87,19 +82,9 @@ class AddEditViewController: UIViewController {
         }
         navigationController?.popViewController(animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 extension AddEditViewController: UIPickerViewDelegate,UIPickerViewDataSource{
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -110,4 +95,5 @@ extension AddEditViewController: UIPickerViewDelegate,UIPickerViewDataSource{
         let platform = platformsManager.platforms[row]
         return platform.name
     }
+    
 }

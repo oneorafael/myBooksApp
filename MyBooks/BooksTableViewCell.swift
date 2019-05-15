@@ -13,7 +13,6 @@ class BooksTableViewCell: UITableViewCell {
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbPlatform: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,8 +24,10 @@ class BooksTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func prepare(with book: Book){
+    func prepare(with book: Book) {
+        
         lbTitle.text = book.title ?? ""
         lbPlatform.text = book.platform?.name ?? ""
+        
     }
 }

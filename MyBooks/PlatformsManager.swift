@@ -16,20 +16,16 @@ class PlatformsManager {
         let fetchRequest: NSFetchRequest<Platform> = Platform.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        
         do {
             platforms = try context.fetch(fetchRequest)
         } catch  {
             print(error.localizedDescription)
         }
-        
-        
     }
     
     func deletePlatforms(index: Int, context:NSManagedObjectContext){
         let platform = platforms[index]
         context.delete(platform)
-        
         do {
             try context.save()
             platforms.remove(at: index)
@@ -37,8 +33,6 @@ class PlatformsManager {
             print(error.localizedDescription)
         }
     }
-    
     private init(){
-        
     }
 }
