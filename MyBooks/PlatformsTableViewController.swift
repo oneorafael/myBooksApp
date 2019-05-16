@@ -15,18 +15,18 @@ class PlatformsTableViewController: UITableViewController {
         super.viewDidLoad()
         loadPlatforms()
     }
-        // MARK: - load platforms
+    // MARK: - load platforms
     func loadPlatforms(){
         platformsManager.loadPlatforms(with: context)
         tableView.reloadData()
     }
     
-        // MARK: - btn add platform
+    // MARK: - btn add platform
     @IBAction func addPlatform(_ sender: UIBarButtonItem) {
         showAlert(with: nil)
     }
     
-        // MARK: - show popup to add or edit platform
+    // MARK: - show popup to add or edit platform
     func showAlert(with platform: Platform?){
         
         let title = platform == nil ? "Adicionar" : "Editar"
@@ -53,7 +53,7 @@ class PlatformsTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "cancelar", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-        // MARK: - popup appear when you touch in the cell
+    // MARK: - popup appear when you touch in the cell
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let platform = platformsManager.platforms[indexPath.row]
@@ -73,7 +73,7 @@ class PlatformsTableViewController: UITableViewController {
         cell.textLabel?.text = platform.name
         return cell
     }
-        // MARK: - delete cell with fade
+    // MARK: - delete cell with fade
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             platformsManager.deletePlatforms(index: indexPath.row, context: context)

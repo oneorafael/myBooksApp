@@ -7,32 +7,45 @@
 //
 
 import UIKit
+import Cosmos
 
 class AddEditViewController: UIViewController {
     
     @IBOutlet weak var tfTitle: UITextField!
     @IBOutlet weak var tfPlatform: UITextField!
     @IBOutlet weak var btAddEdit: UIButton!
+    @IBOutlet weak var CosmosView: CosmosView!
+    
     var book: Book!
+    var platformsManager = PlatformsManager.shared
     
     lazy var pickerView:UIPickerView = {
+        
         let pickerView = UIPickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.backgroundColor = .white
         return pickerView
+        
     }()
     
-    var platformsManager = PlatformsManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         preparePlatformTextField()
+        
+        // MARK: - status bar for dark background
         self.navigationController?.navigationBar.barStyle = .black
+        
+        // MARK: - cosmos pod
+        CosmosView.didFinishTouchingCosmos = { rating in
+            print(rating)
+        }
         
         if book != nil{
             title = "Editar jogo"
             btAddEdit.setTitle("ALTERAR", for: .normal)
             tfTitle.text = book.title
+            
             if let platform = book.platform, let index = platformsManager.platforms.firstIndex(of:platform){
                 tfPlatform.text = platform.name
                 pickerView.selectRow(index, inComponent: 0, animated: false)
@@ -71,6 +84,8 @@ class AddEditViewController: UIViewController {
             book = Book(context: context)
         }
         book.title = tfTitle.text
+        book.rating = CosmosView.rating
+        
         if !tfPlatform.text!.isEmpty {
             let platform = platformsManager.platforms[pickerView.selectedRow(inComponent: 0)]
             book.platform = platform

@@ -25,9 +25,7 @@ class BooksTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
         
-
     }
-    
     
     func loadBooks(){
         let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
@@ -55,7 +53,7 @@ class BooksTableViewController: UITableViewController {
         tableView.backgroundView = count == 0 ? label : nil
         return count
     }
-  
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BooksTableViewCell
         
@@ -72,7 +70,7 @@ class BooksTableViewController: UITableViewController {
         if editingStyle == .delete {
             guard let book = FetchedResultsController.fetchedObjects?[indexPath.row] else {return}
             context.delete(book)
-    }
+        }
     }
 }
 extension BooksTableViewController: NSFetchedResultsControllerDelegate {

@@ -185,10 +185,24 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avaliação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgw-Yx-oW5">
+                                <rect key="frame" x="20" y="254" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRJ-TY-UbQ" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="20" y="283" width="374" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Qgw-Yx-oW5" firstAttribute="top" secondItem="mLm-Mh-1Jo" secondAttribute="bottom" constant="19" id="BHa-uk-7cL"/>
+                            <constraint firstItem="Qgw-Yx-oW5" firstAttribute="leading" secondItem="zqg-Mt-2fP" secondAttribute="leading" constant="20" id="BQp-O2-qju"/>
                             <constraint firstItem="zqg-Mt-2fP" firstAttribute="trailing" secondItem="zWq-96-aXL" secondAttribute="trailing" constant="20" id="NH2-5z-ptI"/>
+                            <constraint firstItem="zqg-Mt-2fP" firstAttribute="trailing" secondItem="Qgw-Yx-oW5" secondAttribute="trailing" constant="20" id="Suj-2r-kn0"/>
                             <constraint firstItem="zWq-96-aXL" firstAttribute="leading" secondItem="zqg-Mt-2fP" secondAttribute="leading" constant="20" id="ZdD-ui-mfj"/>
                             <constraint firstItem="mLm-Mh-1Jo" firstAttribute="leading" secondItem="zqg-Mt-2fP" secondAttribute="leading" constant="20" id="a0w-O1-bPT"/>
                             <constraint firstItem="zWq-96-aXL" firstAttribute="top" secondItem="zqg-Mt-2fP" secondAttribute="top" constant="36" id="iIs-fJ-drA"/>
@@ -205,13 +219,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="CosmosView" destination="LRJ-TY-UbQ" id="1EQ-Ah-23F"/>
                         <outlet property="lbPlatform" destination="mLm-Mh-1Jo" id="xCf-hs-5c0"/>
                         <outlet property="lbTitle" destination="zWq-96-aXL" id="kVs-dp-odf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1u-rE-ZUt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764" y="-445"/>
+            <point key="canvasLocation" x="763.768115942029" y="-445.3125"/>
         </scene>
         <!--Novo Livro-->
         <scene sceneID="p4X-p0-ayz">
@@ -233,8 +248,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXT-PP-IZ1" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="20" y="292" width="374" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avaliação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kgy-Vt-iHx">
+                                <rect key="frame" x="20" y="263" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmu-by-cAZ">
-                                <rect key="frame" x="20" y="282" width="374" height="34"/>
+                                <rect key="frame" x="20" y="370" width="374" height="34"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="SALVAR">
@@ -250,17 +275,26 @@
                             <constraint firstItem="qvX-xV-659" firstAttribute="trailing" secondItem="h5q-3o-nwX" secondAttribute="trailing" constant="20" id="1a9-Pg-ck3"/>
                             <constraint firstItem="h5q-3o-nwX" firstAttribute="top" secondItem="qvX-xV-659" secondAttribute="top" constant="23" id="2B9-1P-KaE"/>
                             <constraint firstItem="Dmu-by-cAZ" firstAttribute="leading" secondItem="qvX-xV-659" secondAttribute="leading" constant="20" id="4RW-Nf-EQs"/>
+                            <constraint firstItem="Dmu-by-cAZ" firstAttribute="leading" secondItem="qvX-xV-659" secondAttribute="leading" constant="20" id="6f6-05-yfD"/>
                             <constraint firstItem="fNg-JB-3Vi" firstAttribute="leading" secondItem="qvX-xV-659" secondAttribute="leading" constant="20" id="M0i-Kc-cpm"/>
                             <constraint firstItem="fNg-JB-3Vi" firstAttribute="top" secondItem="h5q-3o-nwX" secondAttribute="bottom" constant="8" id="PwH-dn-LAJ"/>
-                            <constraint firstItem="Dmu-by-cAZ" firstAttribute="top" secondItem="fNg-JB-3Vi" secondAttribute="bottom" constant="51" id="Zpk-e4-Din"/>
+                            <constraint firstItem="Kgy-Vt-iHx" firstAttribute="leading" secondItem="qvX-xV-659" secondAttribute="leading" constant="20" id="TI6-8v-dPU"/>
+                            <constraint firstItem="Dmu-by-cAZ" firstAttribute="top" secondItem="RXT-PP-IZ1" secondAttribute="bottom" constant="58" id="WP6-2b-Oj6"/>
+                            <constraint firstItem="qvX-xV-659" firstAttribute="trailing" secondItem="Kgy-Vt-iHx" secondAttribute="trailing" constant="20" id="XCU-Jt-Z0G"/>
                             <constraint firstItem="h5q-3o-nwX" firstAttribute="leading" secondItem="qvX-xV-659" secondAttribute="leading" constant="20" id="dbW-Br-8IT"/>
+                            <constraint firstItem="RXT-PP-IZ1" firstAttribute="leading" secondItem="qvX-xV-659" secondAttribute="leading" constant="20" id="gJ4-fT-eJw"/>
+                            <constraint firstItem="qvX-xV-659" firstAttribute="trailing" secondItem="Dmu-by-cAZ" secondAttribute="trailing" constant="20" id="gvf-uO-NKH"/>
+                            <constraint firstItem="Kgy-Vt-iHx" firstAttribute="top" secondItem="fNg-JB-3Vi" secondAttribute="bottom" constant="32" id="hEs-ZI-GRr"/>
                             <constraint firstItem="qvX-xV-659" firstAttribute="trailing" secondItem="fNg-JB-3Vi" secondAttribute="trailing" constant="20" id="hnV-WV-MJr"/>
                             <constraint firstItem="qvX-xV-659" firstAttribute="trailing" secondItem="Dmu-by-cAZ" secondAttribute="trailing" constant="20" id="mBl-fR-UGA"/>
+                            <constraint firstItem="RXT-PP-IZ1" firstAttribute="top" secondItem="Kgy-Vt-iHx" secondAttribute="bottom" constant="8" id="ouv-1H-Pjc"/>
+                            <constraint firstItem="qvX-xV-659" firstAttribute="trailing" secondItem="RXT-PP-IZ1" secondAttribute="trailing" constant="20" id="ryI-y8-rFb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qvX-xV-659"/>
                     </view>
                     <navigationItem key="navigationItem" title="Novo Livro" id="FU5-n5-6gn"/>
                     <connections>
+                        <outlet property="CosmosView" destination="RXT-PP-IZ1" id="aya-kR-m2b"/>
                         <outlet property="btAddEdit" destination="Dmu-by-cAZ" id="mBm-Ze-Qte"/>
                         <outlet property="tfPlatform" destination="fNg-JB-3Vi" id="IW7-I3-wFk"/>
                         <outlet property="tfTitle" destination="h5q-3o-nwX" id="mqm-j8-rTq"/>
@@ -268,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke2-wS-VFX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1687" y="-445"/>
+            <point key="canvasLocation" x="1686.9565217391305" y="-445.3125"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GLB-BX-vfJ">

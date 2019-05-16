@@ -20,9 +20,11 @@
 		274B741222876A4F00CDD658 /* AddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274B741122876A4F00CDD658 /* AddEditViewController.swift */; };
 		2788835A2287C44300BE994B /* PlatformsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278883592287C44300BE994B /* PlatformsTableViewController.swift */; };
 		2788835C2287C46700BE994B /* PlatformsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2788835B2287C46700BE994B /* PlatformsManager.swift */; };
+		59673738CEA45DC11FA98A13 /* Pods_MyBooks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B99F2320CA90EEBE1A44DE60 /* Pods_MyBooks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1BC4F511664BB6742C51EF /* Pods-MyBooks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBooks.release.xcconfig"; path = "Target Support Files/Pods-MyBooks/Pods-MyBooks.release.xcconfig"; sourceTree = "<group>"; };
 		2720E76922876BEA00A55529 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		2720E76B22876E7300A55529 /* ViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CoreData.swift"; sourceTree = "<group>"; };
 		274B73F522875DD700CDD658 /* MyBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +40,8 @@
 		274B741122876A4F00CDD658 /* AddEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewController.swift; sourceTree = "<group>"; };
 		278883592287C44300BE994B /* PlatformsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformsTableViewController.swift; sourceTree = "<group>"; };
 		2788835B2287C46700BE994B /* PlatformsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformsManager.swift; sourceTree = "<group>"; };
+		B99F2320CA90EEBE1A44DE60 /* Pods_MyBooks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBooks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EED697DEB392D7E3895F08F8 /* Pods-MyBooks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBooks.debug.xcconfig"; path = "Target Support Files/Pods-MyBooks/Pods-MyBooks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +49,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59673738CEA45DC11FA98A13 /* Pods_MyBooks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		046BCDAB484F831F153E715D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B99F2320CA90EEBE1A44DE60 /* Pods_MyBooks.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		22B81325491088C33607505B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EED697DEB392D7E3895F08F8 /* Pods-MyBooks.debug.xcconfig */,
+				0A1BC4F511664BB6742C51EF /* Pods-MyBooks.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		274B73EC22875DD700CDD658 = {
 			isa = PBXGroup;
 			children = (
 				274B73F722875DD700CDD658 /* MyBooks */,
 				274B73F622875DD700CDD658 /* Products */,
+				22B81325491088C33607505B /* Pods */,
+				046BCDAB484F831F153E715D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,9 +120,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 274B740A22875DD800CDD658 /* Build configuration list for PBXNativeTarget "MyBooks" */;
 			buildPhases = (
+				56C5073FB5DF534E7F3F6B56 /* [CP] Check Pods Manifest.lock */,
 				274B73F122875DD700CDD658 /* Sources */,
 				274B73F222875DD700CDD658 /* Frameworks */,
 				274B73F322875DD700CDD658 /* Resources */,
+				D9439D6B08287C927A57C582 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,6 +180,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		56C5073FB5DF534E7F3F6B56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBooks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9439D6B08287C927A57C582 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBooks/Pods-MyBooks-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyBooks/Pods-MyBooks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		274B73F122875DD700CDD658 /* Sources */ = {
@@ -312,6 +386,7 @@
 		};
 		274B740B22875DD800CDD658 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EED697DEB392D7E3895F08F8 /* Pods-MyBooks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -329,6 +404,7 @@
 		};
 		274B740C22875DD800CDD658 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A1BC4F511664BB6742C51EF /* Pods-MyBooks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
