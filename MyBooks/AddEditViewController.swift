@@ -42,7 +42,7 @@ class AddEditViewController: UIViewController {
         }
         
         if book != nil{
-            title = "Editar jogo"
+            title = "Editar Livro"
             btAddEdit.setTitle("ALTERAR", for: .normal)
             tfTitle.text = book.title
             

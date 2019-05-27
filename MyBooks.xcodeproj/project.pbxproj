@@ -70,7 +70,6 @@
 				EED697DEB392D7E3895F08F8 /* Pods-MyBooks.debug.xcconfig */,
 				0A1BC4F511664BB6742C51EF /* Pods-MyBooks.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
